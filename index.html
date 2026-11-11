@@ -4,12 +4,12 @@
 <title>Cápsulas de siembra con mucílago de nopal</title>
 <script>document.documentElement.classList.add("js");</script>
 <style>
-:root{--bg:#F3F6EF;--card:#FFFFFF;--ink:#17281C;--mute:#405449;--g:#255C3D;--g-strong:#18472C;--g2:#E1EEDC;--tuna:#A91450;--tuna-soft:#F9E6EE;--line:#C4D1C3;--table-alt:#F7FAF5;
+:root{--bg:#F3F6EF;--card:#FFFFFF;--ink:#17281C;--mute:#405449;--g:#255C3D;--g-strong:#18472C;--g2:#E1EEDC;--tuna:#A91450;--tuna-soft:#F9E6EE;--line:#C4D1C3;--table-alt:#F7FAF5;--cap-bg:#E7F0E1;--cap-surface:#FFFFFF;--cap-chip:#F5F9F2;
 --bar-green:#28633E;--bar-red:#962047;--header-bg:rgba(243,246,239,.92);--shadow:0 1rem 2.5rem rgba(34,62,42,.10);
 --c1:#C98F6B;--c2:#9DBF8F;--c3:#7A5A3C;--c4:#2B1D10;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101812;--card:#18241B;--ink:#EFF7EE;--mute:#C0D0C3;--g:#9BD4A8;--g-strong:#B7E6BF;--g2:#263B2B;--tuna:#FF9BC1;--tuna-soft:#422333;--line:#3A4F3F;--table-alt:#1C2D21;--bar-green:#2C6941;--bar-red:#A93F6D;--header-bg:rgba(16,24,18,.92);--shadow:0 1rem 2.5rem rgba(0,0,0,.28);color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#101812;--card:#18241B;--ink:#EFF7EE;--mute:#C0D0C3;--g:#9BD4A8;--g-strong:#B7E6BF;--g2:#263B2B;--tuna:#FF9BC1;--tuna-soft:#422333;--line:#3A4F3F;--table-alt:#1C2D21;--bar-green:#2C6941;--bar-red:#A93F6D;--header-bg:rgba(16,24,18,.92);--shadow:0 1rem 2.5rem rgba(0,0,0,.28);color-scheme:dark}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#101812;--card:#18241B;--ink:#EFF7EE;--mute:#C0D0C3;--g:#9BD4A8;--g-strong:#B7E6BF;--g2:#263B2B;--tuna:#FF9BC1;--tuna-soft:#422333;--line:#3A4F3F;--table-alt:#1C2D21;--cap-bg:#172A1E;--cap-surface:#132019;--cap-chip:#1C2D21;--bar-green:#2C6941;--bar-red:#A93F6D;--header-bg:rgba(16,24,18,.92);--shadow:0 1rem 2.5rem rgba(0,0,0,.28);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#101812;--card:#18241B;--ink:#EFF7EE;--mute:#C0D0C3;--g:#9BD4A8;--g-strong:#B7E6BF;--g2:#263B2B;--tuna:#FF9BC1;--tuna-soft:#422333;--line:#3A4F3F;--table-alt:#1C2D21;--cap-bg:#172A1E;--cap-surface:#132019;--cap-chip:#1C2D21;--bar-green:#2C6941;--bar-red:#A93F6D;--header-bg:rgba(16,24,18,.92);--shadow:0 1rem 2.5rem rgba(0,0,0,.28);color-scheme:dark}
 html{scroll-padding-top:5rem;scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;overflow-x:hidden}
@@ -39,15 +39,27 @@ section+section{border-top:1px solid var(--line)}
 .disclaimer{display:flex;gap:.75rem;align-items:flex-start;max-width:60ch;margin:1.35rem 0 0;padding:.9rem 1rem;background:var(--tuna-soft);border:1px solid var(--line);border-left:4px solid var(--tuna);border-radius:.75rem}
 .disclaimer p{margin:0}
 .disclaimer-icon{display:grid;place-items:center;flex:0 0 1.5rem;width:1.5rem;height:1.5rem;background:var(--tuna);color:#fff;border-radius:50%;font-size:.85rem;font-weight:900;line-height:1}
-.cap{position:relative;display:flex;flex-direction:column;align-items:center;gap:1rem;padding:1.25rem;background:linear-gradient(145deg,var(--card),var(--g2));border:1px solid var(--line);border-radius:1.25rem;box-shadow:var(--shadow)}
-.cap::before{content:"";position:absolute;inset:1rem;border:1px dashed var(--line);border-radius:1rem;pointer-events:none}
-.cap svg{position:relative;width:min(100%,19rem);height:auto;filter:drop-shadow(0 .8rem 1rem rgba(35,70,44,.16));animation:float 6s ease-in-out infinite}
+.cap{position:relative;display:flex;flex-direction:column;align-items:center;gap:1.1rem;width:100%;max-width:30rem;padding:1.15rem;background:linear-gradient(155deg,var(--cap-surface),var(--cap-bg));border:1px solid var(--line);border-radius:1.25rem;box-shadow:var(--shadow);overflow:hidden}
+.cap::before{content:"";position:absolute;inset:.85rem;border:1px dashed var(--line);border-radius:1rem;pointer-events:none}
+.cap::after{content:"";position:absolute;top:-6rem;right:-4rem;width:13rem;height:13rem;border-radius:50%;background:var(--g2);opacity:.45;filter:blur(1px);pointer-events:none}
+.cap-head{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;width:100%;gap:1rem;padding:.15rem .2rem 0}
+.cap-label{margin:0;color:var(--g-strong);font-size:.7rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
+.cap-size{display:inline-flex;align-items:center;min-height:1.8rem;padding:.2rem .55rem;background:var(--cap-chip);border:1px solid var(--line);border-radius:999px;color:var(--mute);font-size:.78rem;font-weight:850;white-space:nowrap}
+.cap-title{position:relative;z-index:1;align-self:flex-start;margin:-.45rem 0 -.1rem;padding:0 .2rem;color:var(--ink);font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;font-size:1.15rem;line-height:1.1}
+.cap-visual{position:relative;z-index:1;display:grid;place-items:center;width:min(100%,20rem);aspect-ratio:1}
+.cap-visual::before{content:"";position:absolute;inset:12%;border-radius:50%;background:radial-gradient(circle,var(--g2),transparent 68%);opacity:.8;filter:blur(.55rem)}
+.cap svg{position:relative;width:100%;height:auto;filter:drop-shadow(0 .8rem 1rem rgba(35,70,44,.16));animation:float 6s ease-in-out infinite}
 .cap circle{cursor:pointer;stroke:var(--bg);stroke-width:2;transition:transform .25s ease,filter .25s ease;transform-origin:150px 150px}
 .cap circle:hover,.cap circle:focus-visible,.cap circle.on{transform:scale(1.04);filter:brightness(1.08) drop-shadow(0 .25rem .35rem rgba(30,65,38,.22))}
-.cap circle:focus-visible{outline:3px solid var(--tuna);outline-offset:2px}
-.info{position:relative;min-height:5.5rem;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--tuna);padding:.9rem 1rem;border-radius:.7rem;width:100%;box-shadow:0 .4rem 1.2rem rgba(35,70,44,.08)}
+.cap circle:focus-visible{outline:none;stroke:var(--tuna);stroke-width:4}
+.layer-legend{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.45rem;width:100%}
+.layer-chip{display:flex;align-items:center;justify-content:center;gap:.35rem;min-width:0;padding:.45rem .35rem;border:1px solid var(--line);border-radius:.65rem;background:var(--cap-chip);color:var(--mute);font:inherit;font-size:.72rem;font-weight:800;cursor:pointer;transition:transform .2s ease,background .2s ease,border-color .2s ease,color .2s ease}
+.layer-chip:hover,.layer-chip:focus-visible{transform:translateY(-2px);border-color:var(--g);color:var(--g-strong)}
+.layer-chip[aria-pressed="true"]{background:var(--tuna-soft);border-color:var(--tuna);color:var(--tuna)}
+.swatch{width:.65rem;height:.65rem;flex:0 0 .65rem;border-radius:50%;background:var(--swatch);box-shadow:inset 0 0 0 1px rgba(0,0,0,.16)}
+.info{position:relative;z-index:1;min-height:5.5rem;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--tuna);padding:.9rem 1rem;border-radius:.7rem;width:100%;box-shadow:0 .4rem 1.2rem rgba(35,70,44,.08)}
 .info b{display:block;color:var(--g-strong);margin-bottom:.15rem}
-.figure-caption{margin:0;color:var(--mute);font-size:.88rem;text-align:center}
+.figure-caption{position:relative;z-index:1;margin:0;color:var(--mute);font-size:.82rem;text-align:center}
 .section-title{max-width:44rem}
 .grid{display:grid;gap:1rem}
 @media(min-width:700px){.g3{grid-template-columns:repeat(3,1fr)}.g2{grid-template-columns:repeat(2,1fr)}}
@@ -82,6 +94,7 @@ footer{border-top:1px solid var(--line);padding:2.5rem 1.25rem;text-align:center
 @keyframes float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-.55rem) rotate(1deg)}}
 @keyframes grow-bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media(max-width:620px){.header-inner{align-items:flex-start;flex-direction:column;gap:.35rem}.hero h1{max-width:none}.cap{padding:.8rem}.nav{width:100%}}
+@media(max-width:420px){.layer-legend{grid-template-columns:repeat(2,1fr)}.layer-chip{font-size:.78rem}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.cap svg{animation:none}.bar{animation:none}.js [data-reveal],.js [data-reveal].is-visible{opacity:1;transform:none;transition:none}*,*::before,*::after{transition-duration:.01ms!important}}
 </style></head><body>
 
@@ -104,14 +117,24 @@ footer{border-top:1px solid var(--line);padding:2.5rem 1.25rem;text-align:center
 <aside class="disclaimer" aria-label="Estado de la investigación"><span class="disclaimer-icon" aria-hidden="true">!</span><p><b>Estado de la investigación.</b> Es una hipótesis que queremos comprobar, no una solución demostrada.</p></aside>
 </div>
 <div class="cap" data-reveal style="--delay:120ms">
+<div class="cap-head"><span class="cap-label">Diseño de la cápsula</span><span class="cap-size">1–2 cm</span></div>
+<strong class="cap-title">Cuatro capas, una función</strong>
+<div class="cap-visual">
 <svg viewBox="0 0 300 300" role="group" aria-label="Capas de la cápsula">
 <circle id="l4" cx="150" cy="150" r="140" fill="var(--c1)" tabindex="0" role="button" aria-pressed="false" aria-label="Capa 4, arcilla"/>
 <circle id="l3" cx="150" cy="150" r="104" fill="var(--c2)" tabindex="0" role="button" aria-pressed="false" aria-label="Capa 3, mucílago de nopal"/>
 <circle id="l2" cx="150" cy="150" r="68" fill="var(--c3)" tabindex="0" role="button" aria-pressed="false" aria-label="Capa 2, tierra"/>
 <circle id="l1" cx="150" cy="150" r="26" fill="var(--c4)" tabindex="0" role="button" aria-pressed="false" aria-label="Capa 1, semilla"/>
 </svg>
+</div>
+<div class="layer-legend" aria-label="Selecciona una capa">
+<button class="layer-chip" type="button" data-layer="l4" aria-controls="info" aria-pressed="false"><span class="swatch" style="--swatch:var(--c1)"></span><span>Arcilla</span></button>
+<button class="layer-chip" type="button" data-layer="l3" aria-controls="info" aria-pressed="false"><span class="swatch" style="--swatch:var(--c2)"></span><span>Nopal</span></button>
+<button class="layer-chip" type="button" data-layer="l2" aria-controls="info" aria-pressed="false"><span class="swatch" style="--swatch:var(--c3)"></span><span>Tierra</span></button>
+<button class="layer-chip" type="button" data-layer="l1" aria-controls="info" aria-pressed="false"><span class="swatch" style="--swatch:var(--c4)"></span><span>Semilla</span></button>
+</div>
 <div class="info" id="info" aria-live="polite"><b>Toca una capa</b>La cápsula mide de 1 a 2 cm. Cada capa tiene un trabajo distinto.</div>
-<p class="figure-caption">Explora cada capa con clic, toque o teclado.</p>
+<p class="figure-caption">Haz clic en un anillo o elige una capa para explorarla.</p>
 </div>
 </section>
 
@@ -206,16 +229,22 @@ l3:["Mucílago de nopal","Gel natural que suelta el nopal al remojarse. La hipó
 l4:["Arcilla natural","Protege la cápsula y le da forma de bolita."]};
 var info=document.getElementById("info");
 var layers=document.querySelectorAll(".cap circle");
+var layerButtons=document.querySelectorAll(".layer-chip");
 function showLayer(c){
   layers.forEach(function(x){x.classList.remove("on");x.setAttribute("aria-pressed","false")});
+  layerButtons.forEach(function(x){x.setAttribute("aria-pressed","false")});
   c.classList.add("on");c.setAttribute("aria-pressed","true");
+  var selectedButton=document.querySelector('[data-layer="'+c.id+'"]');
+  if(selectedButton)selectedButton.setAttribute("aria-pressed","true");
   var d=L[c.id],title=document.createElement("b");
   title.textContent=d[0];info.replaceChildren(title,document.createTextNode(d[1]));
 }
+function selectLayer(id){var c=document.getElementById(id);if(c)showLayer(c)}
 layers.forEach(function(c){
   c.addEventListener("click",function(){showLayer(c)});
   c.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();showLayer(c)}});
 });
+layerButtons.forEach(function(button){button.addEventListener("click",function(){selectLayer(button.dataset.layer)})});
 var G=["A. Semilla sola","B. Cápsula sin mucílago","C. Cápsula con mucílago","D. Cápsula con mucílago a otra concentración"];
 var tb=document.getElementById("rows");
 G.forEach(function(n,i){var r=document.createElement("tr");
